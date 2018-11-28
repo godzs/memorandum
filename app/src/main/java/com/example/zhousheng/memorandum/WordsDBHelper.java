@@ -16,6 +16,7 @@ public class WordsDBHelper extends SQLiteOpenHelper {
             Words.Word.COLUMN_NAME_WORD + " TEXT"+","+
             Words.Word.COLUMN_NAME_MEANING + " TEXT"+","
             + Words.Word.COLUMN_NAME_SAMPLE + " TEXT"+")";
+    //时间
 
     //删表SQL
     private final static String SQL_DELETE_DATABASE = "DROP TABLE IF EXISTS " + Words.Word.TABLE_NAME;
