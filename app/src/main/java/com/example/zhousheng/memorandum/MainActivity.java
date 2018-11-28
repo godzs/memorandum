@@ -26,9 +26,6 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
         WordDetailFragment.OnFragmentInteractionListener {
     private static final String TAG = "myTag";
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -48,8 +45,6 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
                 InsertDialog();
             }
         });
-
-
     }
 
     @Override
@@ -60,7 +55,6 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
             wordsDB.close();
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {      //改变菜单颜色
@@ -100,24 +94,16 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
         return super.onOptionsItemSelected(item);
     }
 
-
-    /**
-     * 更新单词列表
-     */
     private void RefreshWordItemFragment() {
         WordItemFragment wordItemFragment = (WordItemFragment) getFragmentManager().findFragmentById(R.id.wordslist);
         wordItemFragment.refreshWordsList();
     }
 
-    /**
-     * 更新单词列表
-     */
-    private void RefreshWordItemFragment(String strWord) {         //查找单词后的单词列表
+
+    private void RefreshWordItemFragment(String strWord) {         //查找事件后的单词列表
         WordItemFragment wordItemFragment = (WordItemFragment) getFragmentManager().findFragmentById(R.id.wordslist);
         wordItemFragment.refreshWordsList(strWord);
     }
-
-
 
     private void InsertDialog() {    //对话框形式
         final TableLayout tableLayout = (TableLayout) getLayoutInflater().inflate(R.layout.insert, null);
@@ -133,8 +119,6 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
                 WordsDB wordsDB=WordsDB.getWordsDB();
                 wordsDB.Insert(strWord, strMeaning, strSample);
                 RefreshWordItemFragment();
-
-
             }
         });
                builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -145,8 +129,6 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
                 });
                 builder.create();//创建对话框
                 builder.show();//显示对话框
-
-
     }
 
 
@@ -206,8 +188,6 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
                 });
                 builder.create();//创建对话框
                 builder.show();//显示对话框
-
-
     }
 
 
@@ -221,28 +201,21 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String txtSearchWord = ((EditText) tableLayout.findViewById(R.id.txtSearchWord)).getText().toString();
-
-                        //单词已经插入到数据库，更新显示列表
                         RefreshWordItemFragment(txtSearchWord);
                     }
                 });
-
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
                     }
                 });
                 builder.create();//创建对话框
                 builder.show();//显示对话框
 
     }
-
     @Override
     public void onWordDetailClick(Uri uri) {
-
     }
-
     @Override
     public void onWordItemClick(String id) {
 
@@ -253,10 +226,8 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
             intent.putExtra(WordDetailFragment.ARG_ID, id);
             startActivity(intent);
         }
-
     }
 
-    //是否是横屏
     private boolean isLand(){
         if(getResources().getConfiguration().orientation== Configuration.ORIENTATION_LANDSCAPE)
             return true;
@@ -267,7 +238,6 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
         Bundle arguments = new Bundle();
         arguments.putString(WordDetailFragment.ARG_ID, id);
         Log.v(TAG, id);
-
         WordDetailFragment fragment = new WordDetailFragment();
         fragment.setArguments(arguments);
         getFragmentManager().beginTransaction().replace(R.id.worddetail, fragment).commit();
@@ -288,14 +258,6 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
             if (item != null) {
                 UpdateDialog(strId, item.word, item.meaning, item.sample);
             }
-
-        }
-    }
-
-    public void onAnotherDialog(String strId){
-        WordsDB wordsDB=WordsDB.getWordsDB();
-        if (wordsDB != null && strId != null) {
-            Words.WordDescription item = wordsDB.getSingleWord(strId);
         }
     }
 }
