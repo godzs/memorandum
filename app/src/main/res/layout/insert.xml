@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow>
+
+        <TextView android:text="标题"
+            android:textColor="#000000"
+            android:textSize="25dp"/>
+
+        <EditText
+            android:ems="15"
+            android:id="@+id/txtWord"
+            android:hint="无标题"
+            android:layout_width="match_parent" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView android:text="日期"
+            android:textColor="#000000"
+            android:textSize="25dp"/>
+
+        <EditText
+            android:id="@+id/txtMeaning"
+            android:layout_width="match_parent" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView android:text="正文"
+            android:textColor="#000000"
+            android:textSize="25dp"/>
+
+        <EditText
+            android:id="@+id/txtSample"
+            android:layout_width="match_parent" />
+    </TableRow>
+</TableLayout>
