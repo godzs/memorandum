@@ -22,14 +22,14 @@ tools:showIn="@layout/activity_main" tools:context=".MainActivity">
         android:id="@+id/wordslist"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1.5" />
+        android:layout_weight="2" />
 
     <FrameLayout
         android:name="com.example.zhousheng.memorandum.WordDetailFragment"
         android:id="@+id/worddetail"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_weight="3"
         />
 
 </LinearLayout>
