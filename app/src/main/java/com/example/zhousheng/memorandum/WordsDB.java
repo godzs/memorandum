@@ -69,8 +69,7 @@ public class WordsDB {
         };
 
         //排序
-        String sortOrder =
-                Words.Word.COLUMN_NAME_WORD + " DESC";
+        String sortOrder = Words.Word.COLUME_DATE + " DESC";
         Cursor c = db.query(
                 Words.Word.TABLE_NAME,
                 projection,
