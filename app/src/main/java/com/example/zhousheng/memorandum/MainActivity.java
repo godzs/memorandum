@@ -62,12 +62,12 @@ public class MainActivity extends AppCompatActivity implements WordItemFragment.
         getMenuInflater().inflate(R.menu.menu_main, menu);   //找到菜单
         MenuItem item = menu.findItem(R.id.action_search);
         SpannableString spannableString = new SpannableString(item.getTitle());
-        spannableString.setSpan(new ForegroundColorSpan(Color.BLUE), 0, spannableString.length(), 0);
+        spannableString.setSpan(new ForegroundColorSpan(Color.RED), 0, spannableString.length(), 0);
         item.setTitle(spannableString);
 
         MenuItem item1 = menu.findItem(R.id.action_insert);
         SpannableString spannableString1 = new SpannableString(item1.getTitle());
-        spannableString1.setSpan(new ForegroundColorSpan(Color.BLUE), 0, spannableString.length(), 0);
+        spannableString1.setSpan(new ForegroundColorSpan(Color.RED), 0, spannableString.length(), 0);
         item1.setTitle(spannableString1);
         return super.onCreateOptionsMenu(menu);
         //return true;

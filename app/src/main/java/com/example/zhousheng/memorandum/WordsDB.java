@@ -132,8 +132,12 @@ public class WordsDB {
     //使用Sql语句更新单词
     public void UpdateUseSql(String strId, String strWord, String strMeaning, String strSample) {
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
-        String sql = "update words set word=?,meaning=?,sample=? where _id=?";
-        db.execSQL(sql, new String[]{strWord,strMeaning, strSample, strId});
+        String date_sql;
+        SimpleDateFormat s_format = new SimpleDateFormat("yyyy-MM-dd  HH:mm:ss");
+        s_format.setTimeZone(TimeZone.getTimeZone("GMT+08"));   //获取北京时间
+        date_sql=s_format.format(new Date());
+        String sql = "update words set word=?,meaning=?,sample=?,date=? where _id=?";
+        db.execSQL(sql, new String[]{strWord,strMeaning, strSample, date_sql,strId});
     }
 
     public void Update(String strId, String strWord, String strMeaning, String strSample) {

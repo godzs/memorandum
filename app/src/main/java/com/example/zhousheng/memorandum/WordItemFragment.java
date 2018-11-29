@@ -101,7 +101,6 @@ public class WordItemFragment extends ListFragment {
                 textId = (TextView) itemView.findViewById(R.id.textId);
                 if (textId != null) {
                     String strId = textId.getText().toString();
-                    System.out.println("11111111111111111");
                     System.out.println(strId);
                     mListener.onDeleteDialog(strId);
                 }
@@ -133,7 +132,7 @@ public class WordItemFragment extends ListFragment {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         Log.v(TAG, "WordItemFragment::onCreateContextMenu()");
         super.onCreateContextMenu(menu, v, menuInfo);
-        getActivity().getMenuInflater().inflate(R.menu.contextmenu_wordslistview, menu);
+        getActivity().getMenuInflater().inflate(R.menu.wordslistview, menu);
     }
 
     @Override
