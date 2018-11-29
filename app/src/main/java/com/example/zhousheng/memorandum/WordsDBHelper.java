@@ -15,7 +15,8 @@ public class WordsDBHelper extends SQLiteOpenHelper {
             Words.Word._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"  +
             Words.Word.COLUMN_NAME_WORD + " TEXT"+","+
             Words.Word.COLUMN_NAME_MEANING + " TEXT"+","
-            + Words.Word.COLUMN_NAME_SAMPLE + " TEXT"+")";
+            + Words.Word.COLUMN_NAME_SAMPLE + " TEXT" +","
+            + Words.Word.COLUME_DATE+ " TEXT"+")";
     //时间
 
     //删表SQL

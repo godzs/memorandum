@@ -27,18 +27,7 @@ public class WordItemFragment extends ListFragment {
     private OnFragmentInteractionListener mListener;
 
     // TODO: Rename and change types of parameters
-    public static WordItemFragment newInstance() {
-        WordItemFragment fragment = new WordItemFragment();
-        Bundle args = new Bundle();
-        ;
-        fragment.setArguments(args);
-        return fragment;
-    }
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
     public WordItemFragment() {
     }
 
@@ -68,10 +57,9 @@ public class WordItemFragment extends ListFragment {
         WordsDB wordsDB=WordsDB.getWordsDB();
         if (wordsDB != null) {
             ArrayList<Map<String, String>> items = wordsDB.getAllWords();
-
             SimpleAdapter adapter = new SimpleAdapter(getActivity(), items, R.layout.item,
-                    new String[]{Words.Word._ID, Words.Word.COLUMN_NAME_WORD},
-                    new int[]{R.id.textId, R.id.textViewWord});
+                    new String[]{Words.Word._ID, Words.Word.COLUMN_NAME_WORD,Words.Word.COLUME_DATE},
+                    new int[]{R.id.textId, R.id.textViewWord,R.id.textdate});
             setListAdapter(adapter);
         }
     }
@@ -82,10 +70,9 @@ public class WordItemFragment extends ListFragment {
         if (wordsDB != null) {
             ArrayList<Map<String, String>> items = wordsDB.SearchUseSql(strWord);
             if(items.size()>0){
-
                 SimpleAdapter adapter = new SimpleAdapter(getActivity(), items, R.layout.item,
-                        new String[]{Words.Word._ID, Words.Word.COLUMN_NAME_WORD},
-                        new int[]{R.id.textId, R.id.textViewWord});
+                        new String[]{Words.Word._ID, Words.Word.COLUMN_NAME_WORD,Words.Word.COLUME_DATE},
+                        new int[]{R.id.textId, R.id.textViewWord,R.id.textdate});
 
                 setListAdapter(adapter);
             }else{

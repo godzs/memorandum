@@ -7,9 +7,13 @@ import android.util.Log;
 
 import com.example.zhousheng.memorandum.DB_col.Words;
 
+import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 public class WordsDB {
     private static final String TAG = "myTag";
@@ -43,7 +47,8 @@ public class WordsDB {
             Words.WordDescription item = new Words.WordDescription(cursor.getString(cursor.getColumnIndex(Words.Word._ID)),
                     cursor.getString(cursor.getColumnIndex(Words.Word.COLUMN_NAME_WORD)),
                     cursor.getString(cursor.getColumnIndex(Words.Word.COLUMN_NAME_MEANING)),
-                    cursor.getString(cursor.getColumnIndex(Words.Word.COLUMN_NAME_SAMPLE)));
+                    cursor.getString(cursor.getColumnIndex(Words.Word.COLUMN_NAME_SAMPLE)),
+                    cursor.getString(cursor.getColumnIndex(Words.Word.COLUME_DATE)));
             return item;
         }
         return null;
@@ -59,14 +64,13 @@ public class WordsDB {
 
         String[] projection = {
                 Words.Word._ID,
-                Words.Word.COLUMN_NAME_WORD
+                Words.Word.COLUMN_NAME_WORD,
+                Words.Word.COLUME_DATE
         };
 
         //排序
         String sortOrder =
                 Words.Word.COLUMN_NAME_WORD + " DESC";
-
-
         Cursor c = db.query(
                 Words.Word.TABLE_NAME,
                 projection,
@@ -86,17 +90,25 @@ public class WordsDB {
             Map<String, String> map = new HashMap<>();
             map.put(Words.Word._ID, String.valueOf(cursor.getString(cursor.getColumnIndex(Words.Word._ID))));
             map.put(Words.Word.COLUMN_NAME_WORD, cursor.getString(cursor.getColumnIndex(Words.Word.COLUMN_NAME_WORD)));
+            map.put(Words.Word.COLUME_DATE, cursor.getString(cursor.getColumnIndex(Words.Word.COLUME_DATE)));
             result.add(map);
         }
         return result;
     }
 
     public void Insert(String strWord, String strMeaning, String strSample) {
+         String date_sql;
+        SimpleDateFormat s_format = new SimpleDateFormat("yyyy-MM-dd  HH:mm:ss");
+        s_format.setTimeZone(TimeZone.getTimeZone("GMT+08"));   //获取北京时间
+        date_sql=s_format.format(new Date());
+        System.out.println(date_sql);
+        System.out.println("1111 "+new Date());
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(Words.Word.COLUMN_NAME_WORD, strWord);
         values.put(Words.Word.COLUMN_NAME_MEANING, strMeaning);
         values.put(Words.Word.COLUMN_NAME_SAMPLE, strSample);
+        values.put(Words.Word.COLUME_DATE,date_sql);
         long newRowId;
         newRowId = db.insert(Words.Word.TABLE_NAME,null, values);
     }

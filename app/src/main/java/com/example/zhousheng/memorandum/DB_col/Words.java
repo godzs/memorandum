@@ -10,12 +10,14 @@ public class Words {
         public String word;
         public String meaning;
         public String sample;
+        public String date;
 
-        public WordDescription(String id, String word, String meaning, String sample) {
+        public WordDescription(String id, String word, String meaning, String sample,String date) {
             this.id = id;
             this.word = word;
             this.meaning = meaning;
             this.sample = sample;
+            this.date=date;
         }
     }
     public Words() {
@@ -25,8 +27,9 @@ public class Words {
     public static abstract class Word implements BaseColumns {
         public static final String TABLE_NAME = "words";//表名
         public static final String COLUMN_NAME_WORD = "word";//字段：标题
-        public static final String COLUMN_NAME_MEANING = "meaning";//字段：日期
+        public static final String COLUMN_NAME_MEANING = "meaning";//字段：备注
         public static final String COLUMN_NAME_SAMPLE = "sample";//字段：内容
+        public static final String COLUME_DATE="date";     //创建时间
 
     }
 }

@@ -19,4 +19,11 @@
         android:id="@+id/textViewWord"
         android:textSize="30dp"
         android:textColor="#000000"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="time"
+        android:id="@+id/textdate"
+        android:textSize="20dp"
+        android:textColor="#000000"/>
 </LinearLayout>
