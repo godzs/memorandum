@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.zhousheng.memorandum.DB_col.Words;
 
-
+/* designed by zhousheng */
 public class WordsDBHelper extends SQLiteOpenHelper {
 
     private final static String DATABASE_NAME = "wordsdb";//数据库名字

@@ -21,7 +21,7 @@ import android.widget.TableLayout;
 import android.widget.Toast;
 
 import com.example.zhousheng.memorandum.DB_col.Words;
-
+/* designed by zhousheng */
 public class MainActivity extends AppCompatActivity implements WordItemFragment.OnFragmentInteractionListener,
         WordDetailFragment.OnFragmentInteractionListener {
     private static final String TAG = "myTag";

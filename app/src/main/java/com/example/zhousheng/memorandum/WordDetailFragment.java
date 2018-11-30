@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.zhousheng.memorandum.DB_col.Words;
-
+/* designed by zhousheng */
 
 public class WordDetailFragment extends Fragment {
     private static final String TAG="myTag";

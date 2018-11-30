@@ -19,7 +19,7 @@ import com.example.zhousheng.memorandum.DB_col.Words;
 
 import java.util.ArrayList;
 import java.util.Map;
-
+/* designed by zhousheng */
 
 public class WordItemFragment extends ListFragment {
     private static final String TAG = "myTag";

@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
-
+/* designed by zhousheng */
 public class WordsDB {
     private static final String TAG = "myTag";
 

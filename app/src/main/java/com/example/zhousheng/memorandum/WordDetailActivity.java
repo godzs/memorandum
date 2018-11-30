@@ -4,7 +4,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-
+/* designed by zhousheng */
 //判断横竖屏，横屏则退出内容页面
 public class WordDetailActivity extends AppCompatActivity implements WordDetailFragment.OnFragmentInteractionListener{
 
